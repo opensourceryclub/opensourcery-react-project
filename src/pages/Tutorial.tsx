@@ -1,26 +1,31 @@
-import react from "react";
+import react, { CSSProperties } from "react";
 import { CenteredPanel } from "../library/Layout";
 import { Button } from '../library/Buttons'
-import { useRoute } from "../Router";
-import { useViews } from '../Views'
+import { PageMeta } from "./page.type";
 
-export function describe(){
-    return {
-        name : 'Tutorial Page',
-        creator : 'Opensourcery',
-        img : 'Badge.png',
-        description: "Some links to help you get started. Libraries and packages can be added through NPM and can be tremendously helpful. Dont reinvent the wheel! Loaded from './src/pages/Tutorial.js",
-        render : Render
-    }
-}
+export default {
 
-function Render () {
+    title : 'Tutorial Page',
+
+    creator : 'Opensourcery',
+
+    description : 'Some links to help you get started. Libraries and packages can be added through NPM and can be tremendously helpful. Dont reinvent the wheel! Loaded from \'./src/pages/Tutorial.js\'',
+
+    date : new Date('September 25, 2021'),
+
+    thumbnail : 'Badge.png',
+
+    page : TutorialPage
+
+} as PageMeta
+
+function TutorialPage () {
     
     const style = {
         textAlign: 'center',
         padding: 10,
         lineHeight: 2
-    }
+    } as CSSProperties
 
     return <CenteredPanel width={500} height={600}>
         <div style={style}>

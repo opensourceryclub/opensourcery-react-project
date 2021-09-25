@@ -1,7 +1,14 @@
-import { useState } from "react/cjs/react.development"
+import { CSSProperties, useState } from "react"
 import Colors from "../Colors"
 
-export function CenteredPanel ( props ) {
+interface CenteredPanelProps {
+    style ?: CSSProperties,
+    width : number,
+    height : number,
+    children : React.ReactNode
+}
+
+export function CenteredPanel ( props : CenteredPanelProps ) {
 
     const { style, width, height, children } = props
 
@@ -13,7 +20,7 @@ export function CenteredPanel ( props ) {
         top: `calc(50% - ${height/2}px)`,
         left: `calc(50% - ${width/2}px)`,
         ...style
-    }
+    } as CSSProperties
 
     return <div style={componentStyle}>
         {children}
@@ -21,8 +28,15 @@ export function CenteredPanel ( props ) {
 
 }
 
-
-export function ClickablePanel ( props ) {
+interface ClickablePanelProps {
+    style ?: CSSProperties,
+    width : number,
+    height : number,
+    children : React.ReactNode,
+    color ?: string,
+    onClick : () => void
+}
+export function ClickablePanel ( props : ClickablePanelProps ) {
 
     const [hover, setHover] = useState(false)
     const [click, setClick] = useState(false)
@@ -42,7 +56,7 @@ export function ClickablePanel ( props ) {
         position: 'relative',
         boxShadow: hover ? `0 0 8px ${pallet.shadow}` : '',
         ...style
-    }
+    } as CSSProperties
 
     if ( click )
         componentStyle.boxShadow = `0 0 8px inset ${pallet.shadow}`

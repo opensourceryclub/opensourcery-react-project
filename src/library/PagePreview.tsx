@@ -1,6 +1,15 @@
-import { ClickablePanel, Panel } from "./Layout";
+import { CSSProperties, ReactNode } from "react";
+import { ClickablePanel } from "./Layout";
 
-export default function ( props ) {
+interface PagePreviewProps {
+    onClick : () => void,
+    title : string,
+    img : string | ReactNode,
+    description : string,
+    creator : string
+}   
+
+export default function ( props : PagePreviewProps ) {
 
     const { onClick, title, img, description, creator } = props
 
@@ -35,10 +44,16 @@ export default function ( props ) {
             fontSize: 14,
             textAlign: 'right'
         }
-    }
+    } as {[key:string] : CSSProperties}
+
+    const imgComponent : ReactNode = (typeof img === 'string')  
+        ? <img src={img as string} width="100%" style={{overflow: 'hidden'}} />
+        : img
 
     return <ClickablePanel width={740} height={100} onClick={onClick} >
-        <img src={img} style={style.img} />
+        <div style={style.img}>
+            {imgComponent}
+        </div>
         <div style={style.text}>
             <div style={style.title}>
                 {title}

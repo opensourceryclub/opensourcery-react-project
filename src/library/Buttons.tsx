@@ -1,7 +1,14 @@
-import { useState } from "react/cjs/react.development"
+import { CSSProperties, useState } from "react"
 import Colors from "../Colors"
 
-export function Button ( props ) {
+interface CustomButtonProps {
+    style ?: CSSProperties,
+    text : string,
+    onClick : () => void,
+    color ?: string
+}
+
+export function Button ( props : CustomButtonProps ) {
 
     const [hover, setHover] = useState(false)
     const [click, setClick] = useState(false)
@@ -21,7 +28,7 @@ export function Button ( props ) {
         boxShadow: hover ? `0 0 8px ${pallet.shadow}` : '',
         color: 'white',
         ...style
-    }
+    } as CSSProperties
 
     if ( click )
         componentStyle.boxShadow = `0 0 8px inset ${pallet.shadow}`

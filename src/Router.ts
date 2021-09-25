@@ -2,7 +2,6 @@ import { useState } from "react";
 import { forceUpdate } from "./App";
 import { recordView } from "./Views";
 
-const routeStack = []
 
 function currentRoute () {
     let url = window.location.href.split('/')
@@ -14,7 +13,7 @@ export function useRoute () {
 
     const route = currentRoute()
 
-    const updateRoute = ( new_route ) => {
+    const updateRoute = ( new_route : string ) => {
         if ( new_route == route ) return
         let old_route = window.location.href.split('/')
         old_route[ old_route.length -1 ] = new_route
@@ -23,11 +22,10 @@ export function useRoute () {
         forceUpdate()
     }
 
-    return [route, updateRoute]
+    return [route, updateRoute] as [string,typeof updateRoute]
 
 }
 
-routeStack.push(currentRoute())
 recordView(currentRoute())
 
 window.onpopstate = function () {

@@ -1,7 +1,14 @@
+import { CSSProperties } from "react"
 import Colors from "../Colors"
 import { useViews } from "../Views"
 
-export function ViewIndicator ( props ) {
+interface ViewIndicatorProps {
+    page : string,
+    color ?: string,
+    style ?: CSSProperties
+}
+
+export function ViewIndicator ( props : ViewIndicatorProps ) {
 
     const { page, color, style } = props
     const views = useViews([page])
@@ -19,7 +26,7 @@ export function ViewIndicator ( props ) {
         textAlign: 'right',
         background : pallet.primary,
         ...style
-    }
+    } as CSSProperties
 
     return <div 
         style={componentStyle}>

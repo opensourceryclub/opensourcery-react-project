@@ -1,3 +1,6 @@
+// Where the colors for the example is stored
+// Add your own for your page if you want
+
 export default {
 
     blue : {
@@ -8,4 +11,4 @@ export default {
 
 
 
-}
+} as {[color:string] : any }
