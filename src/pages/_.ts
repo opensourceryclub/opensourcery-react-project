@@ -2,20 +2,23 @@ import { PageMeta } from './page.type'
 import Home from './Home'
 import PageList from './PageList'
 import Tutorial from './Tutorial'
+import EricAmazingPage from './EricAmazingPage'
 
 
 type Routes = {
-    [key : string] : PageMeta
+    [key: string]: PageMeta
 }
 
-export const AllRoutes : Routes = {
+export const AllRoutes: Routes = {
 
-    '' : Home,
+    '': Home,
 
-    'home' : Home,
+    'home': Home,
 
-    'pagelist' : PageList,
+    'pagelist': PageList,
 
-    'tutorial' : Tutorial,
+    'tutorial': Tutorial,
+
+    'eric': EricAmazingPage
 
 }
