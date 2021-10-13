@@ -3,6 +3,7 @@ import Home from './Home'
 import PageList from './PageList'
 import Tutorial from './Tutorial'
 import EricAmazingPage from './EricAmazingPage'
+import SystemPage from './SystemProcessing'
 
 
 type Routes = {
@@ -19,6 +20,8 @@ export const AllRoutes: Routes = {
 
     'tutorial': Tutorial,
 
-    'eric': EricAmazingPage
+    'eric': EricAmazingPage,
+
+    'system': SystemPage,
 
 }
